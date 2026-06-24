@@ -1,0 +1,193 @@
+{
+  "_meta": {
+    "title": "Loan recovery glossary",
+    "source": "Standard Indian banking / NBFC / microfinance recovery terminology; RBI and MFIN usage",
+    "url": "",
+    "last_updated": "2026-06-24",
+    "summary": "Operational definitions of recovery terms, with why each matters to a practitioner and related terms for retrieval.",
+    "tags": ["glossary", "terminology", "recovery"],
+    "note": "Definitions are general domain knowledge. Exact regulatory thresholds referenced here (e.g. SARFAESI/DRT amounts, NPA day-count) are summarized in legal/ and rbi/ and carry TODO: verify where not confirmed against the primary source."
+  },
+  "terms": {
+    "DPD": {
+      "definition": "Days Past Due — the number of days a payment (EMI/instalment) has remained unpaid past its due date.",
+      "importance": "The single most-used severity signal. Drives bucketing, provisioning, NPA classification, and which recovery action is appropriate.",
+      "related_terms": ["DPD Bucket", "NPA", "PAR30", "Bucket"]
+    },
+    "NPA": {
+      "definition": "Non-Performing Asset — a loan on which principal or interest is overdue for 90 days or more (standard RBI norm for banks; see rbi/ for NBFC/MFI specifics).",
+      "importance": "Marks the point where a loan is recognized as impaired, triggers provisioning and usually escalates recovery from soft to formal/legal.",
+      "related_terms": ["GNPA", "Net NPA", "Provisioning", "Write-off", "DPD"]
+    },
+    "PAR30": {
+      "definition": "Portfolio at Risk over 30 days — the outstanding principal of all loans with any instalment overdue more than 30 days, as a percentage of the total portfolio.",
+      "importance": "Early-stress indicator widely used in microfinance to gauge book health before loans hit NPA.",
+      "related_terms": ["PAR60", "PAR90", "DPD", "MFI"]
+    },
+    "PAR60": {
+      "definition": "Portfolio at Risk over 60 days — outstanding of loans overdue more than 60 days as a percentage of the portfolio.",
+      "importance": "Mid-stage stress indicator; loans here are close to NPA and warrant formal action.",
+      "related_terms": ["PAR30", "PAR90", "DPD"]
+    },
+    "PAR90": {
+      "definition": "Portfolio at Risk over 90 days — outstanding of loans overdue more than 90 days as a percentage of the portfolio; closely tracks NPA.",
+      "importance": "Loans here are effectively non-performing; signals the legal/settlement stage.",
+      "related_terms": ["PAR30", "PAR60", "NPA"]
+    },
+    "Lok Adalat": {
+      "definition": "A statutory alternative-dispute-resolution forum under the Legal Services Authorities Act, 1987, that settles disputes by compromise; its award is final, binding, and has the status of a civil court decree with no appeal.",
+      "importance": "The primary realistic forum for small-ticket recovery — cheap, fast, consent-based, and court-fee-refunding. Most sub-₹1 lakh cases route here.",
+      "related_terms": ["Permanent Lok Adalat", "Settlement", "Pre-litigation Notice", "Civil Suit"]
+    },
+    "Permanent Lok Adalat": {
+      "definition": "A Lok Adalat constituted under Section 22-B of the Legal Services Authorities Act, 1987 for public-utility services, which can adjudicate (decide on merits) up to a pecuniary limit even if one party does not consent to settlement.",
+      "importance": "Differs from an ordinary Lok Adalat in that it can decide, not only conciliate; relevant where the dispute concerns a notified public-utility service. TODO: verify current pecuniary limit against the primary source.",
+      "related_terms": ["Lok Adalat", "Settlement"]
+    },
+    "SARFAESI": {
+      "definition": "The Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002 — lets a secured creditor enforce security (seize/sell) without court intervention after a Section 13(2) demand notice.",
+      "importance": "Powerful but usually UNAVAILABLE for sub-₹1 lakh unsecured recovery: it needs a secured asset and meets a minimum loan size, and applies only to notified lenders. Knowing it does NOT apply narrows the realistic options. TODO: verify current minimum loan amount and NBFC applicability thresholds.",
+      "related_terms": ["Secured Loan", "DRT", "ARC", "Demand Notice"]
+    },
+    "DRT": {
+      "definition": "Debts Recovery Tribunal — a tribunal under the Recovery of Debts and Bankruptcy Act, 1993 (formerly RDDBFI Act) for recovery of debts by banks and financial institutions above a pecuniary threshold.",
+      "importance": "Generally UNAVAILABLE for small-ticket recovery because of its high minimum claim amount; sub-₹1 lakh cases cannot use it. TODO: verify current minimum (commonly cited as ₹20 lakh).",
+      "related_terms": ["SARFAESI", "Civil Suit", "NPA"]
+    },
+    "ARC": {
+      "definition": "Asset Reconstruction Company — an RBI-registered entity that buys non-performing assets from lenders (often at a discount) and works to recover them.",
+      "importance": "Relevant when a portfolio of bad loans is sold; individual small-ticket cases are usually recovered in-house or via agencies rather than sold one-off.",
+      "related_terms": ["NPA", "Write-off", "SARFAESI"]
+    },
+    "Recovery Agent": {
+      "definition": "A third-party individual or agency engaged by a lender to pursue collections, subject to RBI conduct guidelines on communication, identification, and conduct.",
+      "importance": "Most field collection is done by agents; their conduct is heavily regulated, and violations create legal and reputational liability for the lender. See rbi/recovery-agents.md.",
+      "related_terms": ["Recovery Practitioner", "Field Visit", "Right Party Contact"]
+    },
+    "Recovery Practitioner": {
+      "definition": "An experienced professional (often an advocate or senior collections specialist) who manages and executes the legal-and-operational recovery of defaulted loans.",
+      "importance": "Undark's primary user. Knows the law and process; needs the case reconstructed, not explained.",
+      "related_terms": ["Recovery Agent", "Pre-litigation Notice", "Lok Adalat"]
+    },
+    "Provisioning": {
+      "definition": "Capital a lender sets aside against expected losses on loans, scaled by how overdue/impaired the loan is.",
+      "importance": "Explains lender urgency: higher provisioning eats into capital, so lenders push to recover or settle before/after NPA classification.",
+      "related_terms": ["NPA", "Write-off", "Charge-off"]
+    },
+    "Write-off": {
+      "definition": "Removing a loan from the active books as a loss (often after full provisioning); the debt may still be legally recoverable.",
+      "importance": "A written-off loan is still collectable — recovery on written-off accounts is often pure upside for the lender, changing settlement appetite.",
+      "related_terms": ["Charge-off", "Provisioning", "Settlement"]
+    },
+    "Settlement": {
+      "definition": "A negotiated closure where the borrower pays an agreed (usually reduced) amount to fully discharge the account; commonly a One-Time Settlement (OTS).",
+      "importance": "The realistic end-state for most small-ticket recovery; the practitioner's skill is setting a fair, recoverable figure.",
+      "related_terms": ["Settlement Letter", "Lok Adalat", "Write-off", "Promise to Pay"]
+    },
+    "Charge-off": {
+      "definition": "Accounting recognition that a debt is unlikely to be collected and is moved off active receivables as a loss; similar in effect to write-off.",
+      "importance": "Like write-off, signals the lender has booked the loss — recovery is upside and settlement flexibility rises.",
+      "related_terms": ["Write-off", "Provisioning"]
+    },
+    "Demand Notice": {
+      "definition": "A formal written demand to the borrower to pay the outstanding amount, typically with a deadline.",
+      "importance": "Often the first formal escalation and a prerequisite/evidence step before legal action; under SARFAESI specifically it is the Section 13(2) notice.",
+      "related_terms": ["Reminder Notice", "Pre-litigation Notice", "SARFAESI"]
+    },
+    "Pre-litigation Notice": {
+      "definition": "A notice sent before filing a case (including before a Lok Adalat reference), giving the borrower a final opportunity to pay or settle.",
+      "importance": "Builds the evidence trail of good-faith effort and is the standard precursor to Lok Adalat or civil action in small-ticket recovery.",
+      "related_terms": ["Demand Notice", "Lok Adalat", "Civil Suit"]
+    },
+    "Civil Suit": {
+      "definition": "A money-recovery suit filed in a civil court to obtain a decree for the outstanding debt.",
+      "importance": "The fallback when settlement/Lok Adalat fails and faster tracks (SARFAESI/DRT) are unavailable; slower and costlier, so used selectively for small tickets.",
+      "related_terms": ["Order 37", "Lok Adalat", "DRT"]
+    },
+    "Order 37": {
+      "definition": "Order XXXVII of the Code of Civil Procedure, 1908 — a summary-suit procedure for recovery on negotiable instruments and written contracts for a liquidated debt, where the defendant must seek leave to defend.",
+      "importance": "A faster civil route than an ordinary suit when the debt rests on a cheque, promissory note, or clear written contract — common in recovery.",
+      "related_terms": ["Civil Suit", "NI Act Section 138", "Demand Notice"]
+    },
+    "NI Act Section 138": {
+      "definition": "Section 138 of the Negotiable Instruments Act, 1881 — criminalizes dishonour of a cheque for insufficiency of funds, subject to strict statutory notice and filing timelines.",
+      "importance": "A strong lever when the borrower gave a cheque that bounced; the timelines are unforgiving, so the practitioner must act fast. See legal/ni-act.md.",
+      "related_terms": ["Order 37", "Demand Notice", "Civil Suit"]
+    },
+    "Secured Loan": {
+      "definition": "A loan backed by collateral (property, vehicle, gold) the lender can enforce against on default.",
+      "importance": "Security unlocks faster enforcement (e.g. SARFAESI for eligible secured creditors); its presence/absence changes the entire recovery strategy.",
+      "related_terms": ["Unsecured Loan", "SARFAESI"]
+    },
+    "Unsecured Loan": {
+      "definition": "A loan with no collateral; recovery depends on notices, settlement, and money suits rather than enforcing security.",
+      "importance": "Most small-ticket and microfinance loans are unsecured — meaning SARFAESI is out and Lok Adalat / NI Act / civil suit are the levers.",
+      "related_terms": ["Secured Loan", "Lok Adalat", "MFI"]
+    },
+    "MFI": {
+      "definition": "Microfinance Institution — a lender providing very small, typically unsecured loans to low-income borrowers, often in groups.",
+      "importance": "Defines the core small-ticket segment Undark serves; MFI loans are unsecured, high-volume, and overwhelmingly resolved via settlement/Lok Adalat.",
+      "related_terms": ["NBFC", "Unsecured Loan", "PAR30", "AUM"]
+    },
+    "NBFC": {
+      "definition": "Non-Banking Financial Company — an RBI-regulated lender that is not a bank, including many consumer and microfinance lenders.",
+      "importance": "Most small-ticket lenders are NBFCs; their applicable RBI rules (fair practices, recovery agents, digital lending) govern what recovery conduct is allowed.",
+      "related_terms": ["MFI", "RBI", "Fair Practices Code"]
+    },
+    "AUM": {
+      "definition": "Assets Under Management — the total value of loans/assets a lender or institution manages.",
+      "importance": "Context for portfolio scale; not a per-case signal but useful for understanding a lender's stakes.",
+      "related_terms": ["NBFC", "MFI", "GNPA"]
+    },
+    "GNPA": {
+      "definition": "Gross Non-Performing Assets — total NPAs before deducting provisions, usually expressed as a ratio of gross advances.",
+      "importance": "Headline measure of book stress; rising GNPA in a segment signals more recovery volume and tighter lender settlement appetite.",
+      "related_terms": ["Net NPA", "NPA", "Provisioning"]
+    },
+    "Net NPA": {
+      "definition": "Gross NPAs minus provisions held against them, as a ratio of net advances.",
+      "importance": "Shows the unprovided portion of bad loans — the residual loss the lender still carries and wants to recover.",
+      "related_terms": ["GNPA", "Provisioning", "NPA"]
+    },
+    "Right Party Contact": {
+      "definition": "Right Party Contact (RPC) — actually reaching the correct borrower (not a relative or wrong number) during a collection attempt.",
+      "importance": "A core collections efficiency metric; without RPC there is no recovery conversation. Also bounded by RBI rules against contacting third parties.",
+      "related_terms": ["Skip Trace", "Field Visit", "Promise to Pay", "Recovery Agent"]
+    },
+    "Field Visit": {
+      "definition": "An in-person visit to the borrower's home or business by a recovery agent/officer.",
+      "importance": "A real-world collection step (out of Undark's V0 scope) heavily constrained by RBI conduct rules; relevant as context, not as something Undark recommends.",
+      "related_terms": ["Recovery Agent", "Right Party Contact", "Skip Trace"]
+    },
+    "Bucket": {
+      "definition": "A grouping of accounts by delinquency stage, usually by DPD range (e.g. 0–30, 31–60, 61–90, 90+).",
+      "importance": "Determines collection strategy and team handling; the bucket a case sits in shapes whether it is soft-collections or legal/settlement.",
+      "related_terms": ["DPD Bucket", "DPD", "NPA"]
+    },
+    "DPD Bucket": {
+      "definition": "A specific DPD range used to bucket an account (e.g. X-bucket = 1–30 DPD, etc.).",
+      "importance": "Operational shorthand for severity; aligns recovery action to delinquency stage.",
+      "related_terms": ["Bucket", "DPD"]
+    },
+    "Recovery Rate": {
+      "definition": "The proportion of an outstanding amount (or portfolio) actually recovered, usually as a percentage.",
+      "importance": "Measures effectiveness of a channel or strategy; low recovery rates via formal channels are why settlement/Lok Adalat dominate small tickets.",
+      "related_terms": ["Settlement", "Write-off", "Lok Adalat"]
+    },
+    "Promise to Pay": {
+      "definition": "Promise to Pay (PTP) — a borrower's commitment to pay a stated amount by a stated date, captured during a collection contact.",
+      "importance": "Tracks intent and is a soft-collections milestone; broken PTPs justify escalation to formal/legal steps.",
+      "related_terms": ["Right Party Contact", "Settlement", "Demand Notice"]
+    },
+    "Skip Trace": {
+      "definition": "The process of locating a borrower who has become unreachable or absconded, using available data and field inquiry.",
+      "importance": "Precondition to any recovery on an absconding borrower; also bounded by privacy and RBI third-party-contact rules.",
+      "related_terms": ["Right Party Contact", "Field Visit"]
+    },
+    "Recovery Commission": {
+      "definition": "The fee a recovery agent/practitioner earns, usually a percentage of the amount recovered.",
+      "importance": "Aligns practitioner incentives with throughput and recovery size; explains why faster case turnaround directly increases earnings — Undark's value proposition.",
+      "related_terms": ["Recovery Agent", "Recovery Practitioner", "Recovery Rate"]
+    }
+  }
+}

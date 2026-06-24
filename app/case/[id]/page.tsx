@@ -5,6 +5,7 @@ import { CaseSummary } from "@/components/case-summary";
 import { Timeline } from "@/components/timeline";
 import { MissingDocs } from "@/components/missing-docs";
 import { Risks } from "@/components/risks";
+import { Compliance } from "@/components/compliance";
 import { NextAction } from "@/components/next-action";
 import { Section } from "@/components/ui/section";
 
@@ -40,6 +41,10 @@ export default async function CasePage({
 
       <Section title="Risks & inconsistencies" count={c.risks?.length}>
         <Risks risks={c.risks} />
+      </Section>
+
+      <Section title="Compliance" count={c.compliance_flags?.length}>
+        <Compliance flags={c.compliance_flags} />
       </Section>
 
       <Section title="Recommended next action">

@@ -12,6 +12,7 @@ import {
   NOTICE_DRAFT_PROMPT,
   fillPrompt,
 } from "@/lib/prompts";
+import { retrieve, formatKnowledge } from "@/lib/retrieve";
 
 // One model constant for the whole app. Flip this single line to trade cost
 // for capability:
@@ -65,12 +66,16 @@ export async function extractCase(documentText: string): Promise<ExtractedCase> 
   return parseJSON<ExtractedCase>(raw);
 }
 
-/** Step 2 — the analyst's read on the extracted facts. */
+/** Step 2 — retrieve reference material, then the analyst's read on the facts. */
 export async function analyzeCase(
   facts: ExtractedCase,
 ): Promise<CaseAnalysis> {
+  // Retrieve-before-reason seam. V0 returns nothing, so KNOWLEDGE is empty and
+  // analysis is unchanged; a real corpus plugs in here without touching this.
+  const knowledge = await retrieve(facts);
   const prompt = fillPrompt(CASE_ANALYSIS_PROMPT, {
     CASE_DATA: JSON.stringify(facts, null, 2),
+    KNOWLEDGE: formatKnowledge(knowledge),
   });
   const raw = await complete(prompt, 5000);
   return parseJSON<CaseAnalysis>(raw);

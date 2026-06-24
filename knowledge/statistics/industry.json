@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "title": "Banking / NBFC industry recovery statistics",
+    "source": "RBI Financial Stability Report; RBI 'Report on Trend and Progress of Banking in India'",
+    "url": "https://www.rbi.org.in",
+    "last_updated": "2026-06-24",
+    "summary": "Cross-channel recovery and asset-quality context. Values intentionally null pending sourced fill.",
+    "tags": ["statistics", "industry", "npa", "recovery-channels"],
+    "policy": "Copy values only from the named RBI publications with exact year. Never fabricate. Recovery-rate-by-channel is the most useful table here for comparing Lok Adalat vs DRT vs SARFAESI vs IBC."
+  },
+  "records": [
+    {
+      "year": null,
+      "source": "RBI Financial Stability Report",
+      "metric": "Scheduled commercial banks GNPA ratio",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill from the latest FSR."
+    },
+    {
+      "year": null,
+      "source": "RBI Financial Stability Report",
+      "metric": "NBFC GNPA ratio",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill from the latest FSR."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate by channel — Lok Adalat",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill; compare against DRT / SARFAESI / IBC in the same table."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate by channel — DRT",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill from the same recovery-by-channel table."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate by channel — SARFAESI",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill from the same recovery-by-channel table."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate by channel — IBC",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill; IBC is out of small-ticket scope but useful as a benchmark."
+    }
+  ]
+}

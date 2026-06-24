@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "title": "Microfinance sector statistics",
+    "source": "MFIN Micrometer; Sa-Dhan Bharat Microfinance Report; RBI",
+    "url": "",
+    "last_updated": "2026-06-24",
+    "summary": "Microfinance portfolio, stress, and borrower statistics. Values intentionally null pending sourced fill — do not invent.",
+    "tags": ["statistics", "mfi", "microfinance"],
+    "policy": "Every value must be copied from a named public report with its exact year. Until then, value=null and notes carry the source to pull from. Never fabricate a number."
+  },
+  "records": [
+    {
+      "year": null,
+      "source": "MFIN Micrometer (quarterly)",
+      "metric": "Gross microfinance loan portfolio (GLP / AUM)",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill from the relevant quarter's MFIN Micrometer."
+    },
+    {
+      "year": null,
+      "source": "MFIN Micrometer / Sa-Dhan",
+      "metric": "Number of unique microfinance borrowers",
+      "value": null,
+      "unit": "count (crore)",
+      "notes": "TODO: fill from the latest sector report."
+    },
+    {
+      "year": null,
+      "source": "MFIN Micrometer",
+      "metric": "PAR > 30 days",
+      "value": null,
+      "unit": "percent of portfolio",
+      "notes": "TODO: fill; early-stress indicator."
+    },
+    {
+      "year": null,
+      "source": "MFIN Micrometer",
+      "metric": "PAR > 90 days",
+      "value": null,
+      "unit": "percent of portfolio",
+      "notes": "TODO: fill; closely tracks NPA."
+    },
+    {
+      "year": null,
+      "source": "RBI / sector reports",
+      "metric": "Microfinance GNPA ratio",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: fill from a primary source; verify definition (banks vs NBFC-MFI)."
+    }
+  ]
+}

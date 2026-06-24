@@ -33,6 +33,23 @@ upload  →  /api/process  →  extract text  →  extractCase  →  analyzeCase
 - `packages/domain` — shared types.
 - `lib/store.ts` / `lib/supabase.ts` — persistence with local fallback.
 
+## Knowledge layer (the moat)
+
+Undark is built around a structured knowledge repository (`knowledge/`) that
+**grounds the AI's reasoning rather than relying solely on the language model** —
+the model is replaceable, this repository is not. It is an operational knowledge
+base for Indian small-ticket loan recovery: glossary, distilled RBI rules,
+recovery forums (Lok Adalat / SARFAESI / DRT / NI Act §138 / Order 37 / civil /
+arbitration), notice templates, sourced statistics, captured practitioner cases,
+and synthetic test cases. Every document carries a source; unverified citations
+and numbers are marked `TODO`, never fabricated.
+
+Target retrieval flow: Documents → Extraction → structured facts → retrieve
+relevant RBI rules + legal knowledge + templates + similar practitioner cases →
+context to Claude → analysis. The seam is `lib/retrieve.ts` (the `{KNOWLEDGE}`
+slot in the analysis prompt). V0 returns nothing, so the model runs without it
+until the corpus and retrieval are wired. See `knowledge/README.md`.
+
 ## Layout
 
 ```

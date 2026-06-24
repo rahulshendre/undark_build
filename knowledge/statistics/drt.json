@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "title": "DRT recovery statistics",
+    "source": "RBI 'Report on Trend and Progress of Banking in India'; Ministry of Finance / DRT data",
+    "url": "https://www.rbi.org.in",
+    "last_updated": "2026-06-24",
+    "summary": "Debts Recovery Tribunal volumes and recovery rates. Values intentionally null pending sourced fill.",
+    "tags": ["statistics", "drt", "recovery"],
+    "policy": "Copy values only from the named RBI report (recovery-by-channel table) or official DRT data, with exact year. Never fabricate."
+  },
+  "records": [
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Number of cases referred (DRT channel)",
+      "value": null,
+      "unit": "count",
+      "notes": "TODO: fill from the recovery-by-channel table."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Amount involved (DRT)",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Amount recovered (DRT)",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate (DRT)",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: derive amount recovered / amount involved; historically low — verify."
+    }
+  ]
+}

@@ -53,6 +53,8 @@ actually works on the ground for small-ticket recovery.
 
 Given this case data: {CASE_DATA}
 
+{KNOWLEDGE}
+
 Write a case analysis for an experienced recovery professional. They already
 know the law and the field terms — do not explain basics. Write like a sharp
 junior associate briefing a senior: direct, specific, actionable.
@@ -68,6 +70,9 @@ Return ONLY valid JSON with this exact structure:
   ],
   "risks": [
     { "issue": string, "severity": "normal" | "important" | "critical", "evidence": string }
+  ],
+  "compliance_flags": [
+    { "rule": string, "status": "ok" | "attention" | "violation" | "unknown", "detail": string }
   ],
   "next_action": {
     "action": string,
@@ -86,6 +91,8 @@ Rules:
 - Settlement ranges should be realistic, not optimistic. Use null if you can't ground a number.
 - If documents are critically missing, lower the confidence and say why.
 - Surface inconsistencies as risks (e.g. two different outstanding amounts, unsigned agreement, partial statements).
+- Compliance flags are pass/fail gates, kept separate from risks: check the RBI Fair Practice Code (contact timing, no harassment, no contacting relatives), whether written intimation was sent before action, and forum-specific prerequisites. Mark status honestly; use "unknown" when the documents don't say.
+- If reference material is provided above, ground legal claims in it and cite the source. If none is provided, rely on general knowledge and LOWER confidence on anything legally specific.
 - Never recommend field visits (out of scope for this product).
 - No explanation outside the JSON. No markdown. JSON only.
 ${FEW_SHOT_ANALYSIS_EXAMPLES}

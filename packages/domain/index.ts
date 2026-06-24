@@ -55,6 +55,20 @@ export type Risk = {
   evidence: string;
 };
 
+/**
+ * A regulatory/compliance check on the case — kept distinct from risks because
+ * the RBI Fair Practice Code, written-intimation timing, and harassment rules
+ * are pass/fail gates a practitioner must clear before acting, not just
+ * inconsistencies to weigh.
+ */
+export type ComplianceStatus = "ok" | "attention" | "violation" | "unknown";
+
+export type ComplianceFlag = {
+  rule: string; // e.g. "RBI Fair Practice Code — written intimation"
+  status: ComplianceStatus;
+  detail: string;
+};
+
 /** The one practical next step, with reasoning and honest confidence. */
 export type NextAction = {
   action: string;
@@ -92,6 +106,7 @@ export type CaseAnalysis = {
   timeline: TimelineEvent[];
   missing_docs: DocumentStatus[];
   risks: Risk[];
+  compliance_flags: ComplianceFlag[];
   next_action: NextAction;
 };
 

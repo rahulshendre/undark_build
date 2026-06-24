@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "title": "Lok Adalat statistics",
+    "source": "National Legal Services Authority (NALSA); National Lok Adalat disposal reports",
+    "url": "https://nalsa.gov.in",
+    "last_updated": "2026-06-24",
+    "summary": "Lok Adalat case-referral and disposal statistics. Values intentionally null pending sourced fill.",
+    "tags": ["statistics", "lok-adalat", "nalsa"],
+    "policy": "Copy values only from NALSA / official Lok Adalat reports with exact year/period. Never fabricate."
+  },
+  "records": [
+    {
+      "year": null,
+      "source": "NALSA National Lok Adalat report",
+      "metric": "Cases taken up (National Lok Adalat)",
+      "value": null,
+      "unit": "count",
+      "notes": "TODO: fill per the specific National Lok Adalat date/period."
+    },
+    {
+      "year": null,
+      "source": "NALSA National Lok Adalat report",
+      "metric": "Cases disposed / settled",
+      "value": null,
+      "unit": "count",
+      "notes": "TODO: fill; pair with cases taken up to derive disposal rate."
+    },
+    {
+      "year": null,
+      "source": "NALSA National Lok Adalat report",
+      "metric": "Settlement amount / value",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill from the official report."
+    },
+    {
+      "year": null,
+      "source": "NALSA",
+      "metric": "Pre-litigation cases settled",
+      "value": null,
+      "unit": "count",
+      "notes": "TODO: fill; relevant to pre-litigation recovery via Lok Adalat."
+    }
+  ]
+}

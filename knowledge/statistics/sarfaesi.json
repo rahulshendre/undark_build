@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "title": "SARFAESI recovery statistics",
+    "source": "RBI 'Report on Trend and Progress of Banking in India' (recovery-by-channel table)",
+    "url": "https://www.rbi.org.in",
+    "last_updated": "2026-06-24",
+    "summary": "SARFAESI volumes and recovery rates. Values intentionally null pending sourced fill.",
+    "tags": ["statistics", "sarfaesi", "recovery"],
+    "policy": "Copy values only from the named RBI report with exact year. Never fabricate. Note: SARFAESI is largely outside the sub-₹1 lakh segment; these figures are context, not core."
+  },
+  "records": [
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Number of cases referred (SARFAESI channel)",
+      "value": null,
+      "unit": "count",
+      "notes": "TODO: fill from the recovery-by-channel table."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Amount involved (SARFAESI)",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Amount recovered (SARFAESI)",
+      "value": null,
+      "unit": "INR crore",
+      "notes": "TODO: fill."
+    },
+    {
+      "year": null,
+      "source": "RBI Report on Trend and Progress of Banking in India",
+      "metric": "Recovery rate (SARFAESI)",
+      "value": null,
+      "unit": "percent",
+      "notes": "TODO: derive amount recovered / amount involved; verify."
+    }
+  ]
+}
