@@ -92,7 +92,9 @@ Rules:
 - If documents are critically missing, lower the confidence and say why.
 - Surface inconsistencies as risks (e.g. two different outstanding amounts, unsigned agreement, partial statements).
 - Compliance flags are pass/fail gates, kept separate from risks: check the RBI Fair Practice Code (contact timing, no harassment, no contacting relatives), whether written intimation was sent before action, and forum-specific prerequisites. Mark status honestly; use "unknown" when the documents don't say.
-- If reference material is provided above, ground legal claims in it and cite the source. If none is provided, rely on general knowledge and LOWER confidence on anything legally specific.
+- Prefer the retrieved reference material above over your own prior knowledge for any legal or regulatory point, and cite the retrieved document titles when you rely on them.
+- Never invent regulations, section numbers, or monetary thresholds. State only what the retrieved material or the case facts support.
+- If no reference material was retrieved, or it does not cover a point, say so and LOWER the confidence on anything legally specific.
 - Never recommend field visits (out of scope for this product).
 - No explanation outside the JSON. No markdown. JSON only.
 ${FEW_SHOT_ANALYSIS_EXAMPLES}

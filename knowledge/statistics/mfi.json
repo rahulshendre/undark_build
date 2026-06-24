@@ -1,53 +1,91 @@
 {
   "_meta": {
     "title": "Microfinance sector statistics",
-    "source": "MFIN Micrometer; Sa-Dhan Bharat Microfinance Report; RBI",
-    "url": "",
+    "source": "MFIN Micrometer (primary); secondary news reporting MFIN releases (clearly marked)",
+    "url": "https://mfinindia.org",
     "last_updated": "2026-06-24",
-    "summary": "Microfinance portfolio, stress, and borrower statistics. Values intentionally null pending sourced fill — do not invent.",
+    "summary": "Microfinance portfolio and stress figures. Dec-2023 per-lender portfolio is from the saved primary MFIN Micrometer (48th issue); the Q4 FY26 headline is from secondary news and marked medium confidence pending the primary.",
     "tags": ["statistics", "mfi", "microfinance"],
-    "policy": "Every value must be copied from a named public report with its exact year. Until then, value=null and notes carry the source to pull from. Never fabricate a number."
+    "policy": "Primary = MFIN Micrometer synopsis PDF saved under knowledge/sources/mfin/. Secondary (news) figures are recorded only with explicit source + confidence:medium + TODO_VERIFY against the primary. Never fabricate.",
+    "note": "Scope caveat: the Dec-2023 'universe' (NBFC-MFIs + Banks + SFBs + NBFCs) and the Q4-FY26 'industry portfolio' headline may use different definitions and do not cleanly reconcile — do not merge them without confirming scope."
   },
   "records": [
     {
-      "year": null,
-      "source": "MFIN Micrometer (quarterly)",
-      "metric": "Gross microfinance loan portfolio (GLP / AUM)",
-      "value": null,
+      "as_on": "2023-12-31",
+      "period": "Q3 FY2023-24",
+      "metric": "Micro-credit portfolio outstanding — NBFC-MFIs",
+      "value": 156245,
       "unit": "INR crore",
-      "notes": "TODO: fill from the relevant quarter's MFIN Micrometer."
+      "source": "MFIN Micrometer, 48th issue (Q3 FY23-24)",
+      "source_file": "knowledge/sources/mfin/micrometer_synopsis_q3_fy23-24.pdf",
+      "page": 5,
+      "confidence": "high",
+      "notes": "YoY growth 26.6% (vs 1,23,386 Cr on 31-Dec-22). Peer share ~39%."
     },
     {
-      "year": null,
-      "source": "MFIN Micrometer / Sa-Dhan",
-      "metric": "Number of unique microfinance borrowers",
-      "value": null,
-      "unit": "count (crore)",
-      "notes": "TODO: fill from the latest sector report."
+      "as_on": "2023-12-31",
+      "period": "Q3 FY2023-24",
+      "metric": "Micro-credit portfolio outstanding — Banks",
+      "value": 133759,
+      "unit": "INR crore",
+      "source": "MFIN Micrometer, 48th issue (Q3 FY23-24)",
+      "source_file": "knowledge/sources/mfin/micrometer_synopsis_q3_fy23-24.pdf",
+      "page": 5,
+      "confidence": "high",
+      "notes": "YoY growth 16.8% (vs 1,14,546 Cr on 31-Dec-22). Peer share ~33%."
     },
     {
-      "year": null,
-      "source": "MFIN Micrometer",
-      "metric": "PAR > 30 days",
-      "value": null,
-      "unit": "percent of portfolio",
-      "notes": "TODO: fill; early-stress indicator."
+      "as_on": "2023-12-31",
+      "period": "Q3 FY2023-24",
+      "metric": "Micro-credit portfolio outstanding — Small Finance Banks",
+      "value": 70449,
+      "unit": "INR crore",
+      "source": "MFIN Micrometer, 48th issue (Q3 FY23-24)",
+      "source_file": "knowledge/sources/mfin/micrometer_synopsis_q3_fy23-24.pdf",
+      "page": 5,
+      "confidence": "high",
+      "notes": "YoY growth 35.0% (vs 52,192 Cr on 31-Dec-22). Peer share ~18%."
     },
     {
-      "year": null,
-      "source": "MFIN Micrometer",
-      "metric": "PAR > 90 days",
-      "value": null,
-      "unit": "percent of portfolio",
-      "notes": "TODO: fill; closely tracks NPA."
+      "as_on": "2023-12-31",
+      "period": "Q3 FY2023-24",
+      "metric": "Micro-credit portfolio outstanding — NBFCs",
+      "value": 35744,
+      "unit": "INR crore",
+      "source": "MFIN Micrometer, 48th issue (Q3 FY23-24)",
+      "source_file": "knowledge/sources/mfin/micrometer_synopsis_q3_fy23-24.pdf",
+      "page": 5,
+      "confidence": "high",
+      "notes": "YoY growth 31.8% (vs 27,112 Cr on 31-Dec-22). Peer share ~9%."
     },
     {
-      "year": null,
-      "source": "RBI / sector reports",
-      "metric": "Microfinance GNPA ratio",
-      "value": null,
+      "as_on": "2026-03-31",
+      "period": "Q4 FY2025-26",
+      "metric": "Microfinance industry portfolio (headline)",
+      "value": 325174,
+      "unit": "INR crore",
+      "source": "Secondary news reporting MFIN Micrometer (Q4 FY26); e.g. IndianWeb2 / Business Standard",
+      "source_file": null,
+      "page": null,
+      "confidence": "medium",
+      "notes": "TODO_VERIFY against the primary MFIN Micrometer (57th issue). Scope may differ from the Dec-2023 universe figures above."
+    },
+    {
+      "as_on": "2026-03-31",
+      "period": "Q4 FY2025-26",
+      "metric": "PAR 31-180 days",
+      "value": 2.0,
       "unit": "percent",
-      "notes": "TODO: fill from a primary source; verify definition (banks vs NBFC-MFI)."
+      "source": "Secondary news reporting MFIN Micrometer (Q4 FY26)",
+      "source_file": null,
+      "page": null,
+      "confidence": "medium",
+      "notes": "Reported as 2.0% vs 6.3% a year earlier; PAR 31-90 reported 0.8%, PAR 91-180 reported 1.2%. TODO_VERIFY against the primary."
     }
+  ],
+  "todo": [
+    "TODO_VERIFY: total microfinance universe GLP as on 31-Dec-2023 (the sum of the four peer groups + others) directly from the MFIN 48th Micrometer.",
+    "TODO_VERIFY: PAR 31-180 by entity for Dec-2023 — present in the primary PDF but the flattened text extraction made the entity×date mapping ambiguous; read from the chart/table directly.",
+    "TODO_VERIFY: download the latest primary MFIN Micrometer (57th issue, Q4 FY26) to replace the medium-confidence news figures."
   ]
 }

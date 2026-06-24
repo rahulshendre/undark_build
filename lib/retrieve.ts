@@ -1,40 +1,47 @@
 import "server-only";
 import type { ExtractedCase } from "@/packages/domain";
+import { buildQuery, rankChunks, type Chunk } from "./knowledge/corpus";
+import { loadChunks } from "./knowledge/load";
 
-// Knowledge retrieval seam — the "retrieve before reason" step.
+// Knowledge retrieval — the "retrieve before reason" step.
 //
-// V0 is a deliberate no-op: it returns no snippets, so analysis behaves exactly
-// as before. The point is that the architecture already matches the target
-// flow — Documents → Extraction → RETRIEVAL → Claude — so when we have a real
-// corpus we wire it in here and nothing else moves.
-//
-// FUTURE: vector search over a curated corpus keyed on the case facts
-// (loan_type, state, dpd, security, likely forum):
-//   - RBI guidelines & Fair Practices Code
-//   - Legal Services Authorities Act (Lok Adalat), SARFAESI, NI Act §138
-//   - notice templates
-//   - transcribed practitioner examples (the moat)
-// We do NOT build this before the uncle session proves few-shot output is
-// legally thin — a half-built legal RAG that retrieves the wrong section is
-// worse than honest zero-shot, because it breaks "never pretend certainty".
+// Deterministic keyword/tag scoring over the knowledge/ corpus. No embeddings,
+// no vector store, no external service. Same facts → same chunks, every time.
+// See lib/knowledge/corpus.ts for the scoring; lib/knowledge/load.ts for disk
+// loading; knowledge/retrieval/README.md for the design.
 
 export type KnowledgeSnippet = {
-  source: string; // human-readable citation, e.g. "RBI FPC 2025 §6"
+  source: string; // citeable document title (+ section)
   text: string;
 };
 
-/** Retrieve reference material relevant to a case. V0: returns nothing. */
+function toSnippet(chunk: Chunk): KnowledgeSnippet {
+  const source = chunk.section
+    ? `${chunk.title} — ${chunk.section}`
+    : chunk.title;
+  return { source, text: chunk.text };
+}
+
+/** Retrieve the top reference chunks relevant to a case. */
 export async function retrieve(
-  _facts: ExtractedCase,
+  facts: ExtractedCase,
+  k = 5,
 ): Promise<KnowledgeSnippet[]> {
-  return [];
+  const chunks = loadChunks();
+  const query = buildQuery(facts);
+  return rankChunks(chunks, query, k).map(toSnippet);
 }
 
 /** Render snippets for prompt injection. Empty input -> empty string. */
 export function formatKnowledge(snippets: KnowledgeSnippet[]): string {
   if (snippets.length === 0) return "";
   const body = snippets
-    .map((s) => `[${s.source}]\n${s.text}`)
+    .map((s, i) => `[${i + 1}] ${s.source}\n${s.text}`)
     .join("\n\n");
-  return `Relevant reference material (cite these where they apply; do not invent citations):\n${body}`;
+  return [
+    "Relevant reference material retrieved from Undark's knowledge base.",
+    "Prefer this over your own prior knowledge. Cite these document titles when you rely on them. Do not invent regulations, section numbers, or thresholds beyond what appears here.",
+    "",
+    body,
+  ].join("\n");
 }

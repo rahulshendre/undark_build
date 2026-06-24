@@ -1,45 +1,84 @@
 {
   "_meta": {
     "title": "Lok Adalat statistics",
-    "source": "National Legal Services Authority (NALSA); National Lok Adalat disposal reports",
-    "url": "https://nalsa.gov.in",
+    "source": "National Legal Services Authority (NALSA) — National Lok Adalat disposal reports",
+    "url": "https://nalsa.gov.in/statistics/national-lok-adalat-report/",
     "last_updated": "2026-06-24",
-    "summary": "Lok Adalat case-referral and disposal statistics. Values intentionally null pending sourced fill.",
+    "summary": "National Lok Adalat case and settlement figures, extracted from official NALSA disposal PDFs. Internally arithmetic-verified (pre-litigation + pending = total).",
     "tags": ["statistics", "lok-adalat", "nalsa"],
-    "policy": "Copy values only from NALSA / official Lok Adalat reports with exact year/period. Never fabricate."
+    "policy": "Values copied from official NALSA disposal PDFs (saved under knowledge/sources/nalsa/). Pre-litigation + pending columns sum to the total column — verified. Settlement amounts are in rupees (absolute) as printed.",
+    "note": "For 14.03.2026: Delhi organized its NLA on 22-03-2026 and West Bengal postponed, so those are not fully reflected in this date's grand total (per the report's own note)."
   },
   "records": [
     {
-      "year": null,
-      "source": "NALSA National Lok Adalat report",
-      "metric": "Cases taken up (National Lok Adalat)",
-      "value": null,
+      "date": "2026-03-14",
+      "event": "National Lok Adalat (all types of cases)",
+      "category": "total",
+      "metric": "Cases taken up",
+      "value": 51317680,
       "unit": "count",
-      "notes": "TODO: fill per the specific National Lok Adalat date/period."
+      "source": "NALSA disposal report 14.03.2026",
+      "source_file": "knowledge/sources/nalsa/national_lok_adalat_2026-03-14.pdf",
+      "page": 1,
+      "confidence": "high",
+      "notes": "Grand Total. Pre-litigation (42,993,421) + pending (8,324,259) = 51,317,680 (verified)."
     },
     {
-      "year": null,
-      "source": "NALSA National Lok Adalat report",
-      "metric": "Cases disposed / settled",
-      "value": null,
+      "date": "2026-03-14",
+      "event": "National Lok Adalat (all types of cases)",
+      "category": "total",
+      "metric": "Cases disposed of / settled",
+      "value": 40639056,
       "unit": "count",
-      "notes": "TODO: fill; pair with cases taken up to derive disposal rate."
+      "source": "NALSA disposal report 14.03.2026",
+      "source_file": "knowledge/sources/nalsa/national_lok_adalat_2026-03-14.pdf",
+      "page": 1,
+      "confidence": "high",
+      "notes": "Grand Total. Pre-litigation (34,687,917) + pending (5,951,139) = 40,639,056 (verified)."
     },
     {
-      "year": null,
-      "source": "NALSA National Lok Adalat report",
-      "metric": "Settlement amount / value",
-      "value": null,
-      "unit": "INR crore",
-      "notes": "TODO: fill from the official report."
+      "date": "2026-03-14",
+      "event": "National Lok Adalat (all types of cases)",
+      "category": "total",
+      "metric": "Settlement amount",
+      "value": 237792059599,
+      "unit": "INR (absolute rupees)",
+      "source": "NALSA disposal report 14.03.2026",
+      "source_file": "knowledge/sources/nalsa/national_lok_adalat_2026-03-14.pdf",
+      "page": 1,
+      "confidence": "high",
+      "notes": "Grand Total ≈ Rs 23,779.21 crore. Pre-litigation (78,214,367,039) + pending (159,577,692,560) = 237,792,059,599 (verified)."
     },
     {
-      "year": null,
-      "source": "NALSA",
-      "metric": "Pre-litigation cases settled",
-      "value": null,
+      "date": "2026-03-14",
+      "event": "National Lok Adalat (all types of cases)",
+      "category": "pre_litigation",
+      "metric": "Cases taken up",
+      "value": 42993421,
       "unit": "count",
-      "notes": "TODO: fill; relevant to pre-litigation recovery via Lok Adalat."
+      "source": "NALSA disposal report 14.03.2026",
+      "source_file": "knowledge/sources/nalsa/national_lok_adalat_2026-03-14.pdf",
+      "page": 1,
+      "confidence": "high",
+      "notes": "Pre-litigation column, Grand Total row."
+    },
+    {
+      "date": "2026-03-14",
+      "event": "National Lok Adalat (all types of cases)",
+      "category": "pending",
+      "metric": "Cases taken up",
+      "value": 8324259,
+      "unit": "count",
+      "source": "NALSA disposal report 14.03.2026",
+      "source_file": "knowledge/sources/nalsa/national_lok_adalat_2026-03-14.pdf",
+      "page": 1,
+      "confidence": "high",
+      "notes": "Pending-cases column, Grand Total row."
     }
+  ],
+  "todo": [
+    "TODO_VERIFY: extract earlier National Lok Adalat dates (13.12.2025, 13.09.2025 — PDFs saved/available) into records for a time series.",
+    "TODO_VERIFY: confirm column semantics (pre-litigation / pending / total) against the PDF header on each report; the 14.03.2026 mapping was confirmed by arithmetic.",
+    "TODO: derive disposal rate = disposed / taken up per date once multiple dates are captured."
   ]
 }
