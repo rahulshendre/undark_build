@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "case": "case_004_scanned",
+    "intent": "Poor OCR quality. Expect an OCR/illegibility warning and a manual-review recommendation; do not confidently assert illegible values.",
+    "expect_error": false
+  },
+  "facts": {
+    "borrower_name": null,
+    "loan_type": "unknown",
+    "security": "unknown",
+    "state": null,
+    "dpd": null,
+    "loan_amount_original": null,
+    "loan_amount_outstanding": null,
+    "documents_present": ["Scanned Notice (poor OCR)"]
+  },
+  "expected": {
+    "confidence": "low",
+    "confidence_ceiling": "low",
+    "must_be_unknown": ["loan_amount_outstanding", "loan_type"],
+    "missing_docs_include": ["legible"],
+    "risks_include": ["ocr", "illegible"],
+    "compliance_include": [],
+    "recommendation_forum": null,
+    "manual_review_expected": true,
+    "retrieved_documents": []
+  }
+}

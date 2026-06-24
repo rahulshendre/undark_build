@@ -1,0 +1,7 @@
+COLLECTION CALL LOG (SYNTHETIC) — Account FINV-PL-0098241
+
+2024-11-18 10:42  Called borrower. No answer.
+2024-11-25 16:10  Called borrower. Promised to pay by month-end (PTP). Not honoured.
+2024-12-09 11:05  Called borrower. Number switched off.
+2025-01-20 09:50  Called borrower. Spoke; cited medical expenses; requested time.
+All calls within 08:00-19:00 window.

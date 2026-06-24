@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "case": "case_001_happy_path",
+    "intent": "Normal unsecured personal loan with full document set. Timeline reconstructs; recommendation generated; confidence medium/high.",
+    "expect_error": false
+  },
+  "facts": {
+    "borrower_name": "Rajesh Kumar",
+    "loan_type": "personal",
+    "security": "unsecured",
+    "state": "Maharashtra",
+    "dpd": 94,
+    "loan_amount_original": 50000,
+    "loan_amount_outstanding": 47500,
+    "documents_present": ["Loan Agreement", "Bank Statement", "Call Log", "Demand Notice", "WhatsApp Export"]
+  },
+  "expected": {
+    "confidence": "medium",
+    "confidence_floor": "medium",
+    "must_be_unknown": [],
+    "timeline_min_events": 4,
+    "missing_docs_include": [],
+    "risks_include": [],
+    "compliance_include": ["communication"],
+    "recommendation_forum": "lok_adalat",
+    "retrieved_documents": ["lok adalat", "communication", "demand notice", "glossary: dpd"]
+  }
+}

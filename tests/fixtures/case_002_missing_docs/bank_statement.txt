@@ -1,0 +1,5 @@
+BANK STATEMENT (SYNTHETIC) — partial
+Account: XXXX9981
+Some EMI-like debits of Rs. 3,000 seen Mar 2024 - Aug 2024, then stop.
+No loan account number printed. No borrower KYC on this document.
+Balance as on last line: Rs. 1,240

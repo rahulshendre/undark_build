@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "case": "case_003_conflicting_data",
+    "intent": "Outstanding differs between agreement (60,000) and statement (47,500); borrower name differs. Conflict detected; confidence reduced.",
+    "expect_error": false
+  },
+  "facts": {
+    "borrower_name": "Rajesh Kumar",
+    "loan_type": "personal",
+    "security": "unsecured",
+    "state": "Maharashtra",
+    "dpd": null,
+    "loan_amount_original": 60000,
+    "loan_amount_outstanding": null,
+    "documents_present": ["Loan Agreement", "Bank Statement"]
+  },
+  "expected": {
+    "confidence": "low",
+    "confidence_ceiling": "medium",
+    "must_be_unknown": [],
+    "missing_docs_include": [],
+    "risks_include": ["outstanding", "name"],
+    "compliance_include": [],
+    "recommendation_forum": null,
+    "retrieved_documents": []
+  }
+}

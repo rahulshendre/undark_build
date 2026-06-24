@@ -1,0 +1,16 @@
+PERSONAL LOAN AGREEMENT  (SYNTHETIC — TEST DATA, NOT A REAL PERSON)
+
+Lender: Finvera Capital Pvt Ltd (NBFC)
+Borrower: Rajesh Kumar
+Address: 14, Shivaji Nagar, Pune, Maharashtra
+KYC: PAN XXXXX0000X (masked synthetic), Voter ID on file
+
+Loan Account No: FINV-PL-0098241
+Loan Type: Personal Loan (Unsecured)
+Sanctioned Amount: Rs. 50,000
+Disbursal Date: 12 January 2024
+Tenure: 12 months
+EMI: Rs. 4,584
+Security: None (unsecured)
+
+Signed by borrower and lender representative on 12 January 2024.

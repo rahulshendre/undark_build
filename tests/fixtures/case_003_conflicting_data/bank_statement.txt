@@ -1,0 +1,5 @@
+BANK STATEMENT (SYNTHETIC)
+A/c holder: Rajesh Kumat   [NOTE: name differs from agreement "Rajesh Kumar"]
+Loan ref FINV-PL-0099112
+Lender ledger outstanding as on 01-06-2025: Rs. 47,500
+[NOTE: outstanding differs from agreement's Rs. 60,000]

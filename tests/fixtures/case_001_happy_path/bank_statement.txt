@@ -1,0 +1,13 @@
+BANK STATEMENT (SYNTHETIC)  — A/c holder: Rajesh Kumar
+Account: XXXX4471   Bank: State Co-op Bank, Pune
+
+Date         Narration                       Debit     Credit    Balance
+05-02-2024   EMI FINV-PL-0098241             4,584               21,300
+06-03-2024   EMI FINV-PL-0098241             4,584               18,900
+04-04-2024   EMI FINV-PL-0098241             4,584               15,100
+... (EMIs paid Feb 2024 through Oct 2024 — 9 instalments)
+06-10-2024   EMI FINV-PL-0098241             4,584                6,200
+[No EMI debit after October 2024]
+12-03-2025   UPI credit (part payment)                 2,000     8,900
+
+Outstanding per lender ledger as on 10-06-2025: Rs. 47,500

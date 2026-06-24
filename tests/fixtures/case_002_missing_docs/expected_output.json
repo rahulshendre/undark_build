@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "case": "case_002_missing_docs",
+    "intent": "Loan agreement and borrower ID missing. Must NOT hallucinate loan type/amount. Low confidence; missing docs identified.",
+    "expect_error": false
+  },
+  "facts": {
+    "borrower_name": null,
+    "loan_type": "unknown",
+    "security": "unknown",
+    "state": null,
+    "dpd": null,
+    "loan_amount_original": null,
+    "loan_amount_outstanding": null,
+    "documents_present": ["Bank Statement", "WhatsApp Export"]
+  },
+  "expected": {
+    "confidence": "low",
+    "confidence_ceiling": "low",
+    "must_be_unknown": ["loan_type", "loan_amount_outstanding", "borrower_name", "security"],
+    "missing_docs_include": ["loan agreement", "kyc"],
+    "risks_include": ["missing"],
+    "compliance_include": [],
+    "recommendation_forum": null,
+    "retrieved_documents": []
+  }
+}
