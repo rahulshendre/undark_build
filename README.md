@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Undark
 
-## Getting Started
+Case Intelligence Copilot for loan recovery. Upload a messy case file (PDFs,
+images, WhatsApp exports, bank statements); Undark reconstructs it into a clean
+workspace — summary, timeline, missing documents, risks, and a recommended next
+action — and drafts an editable notice. The goal: understand a case in under a
+minute instead of thirty.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local      # add ANTHROPIC_API_KEY (only required var)
+npm run dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+That's it. With no Supabase configured, cases persist to local JSON under
+`.data/cases/`. Add the two `NEXT_PUBLIC_SUPABASE_*` vars to persist to Postgres
+instead (table DDL is in `.env.example`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How it works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+upload  →  /api/process  →  extract text  →  extractCase  →  analyzeCase  →  save
+(screen 1)                 (pdf-parse,       (facts)         (analyst read)   ↓
+                            tesseract, mammoth)                          /case/[id]
+                                                                         (screen 2)
+```
 
-## Learn More
+- `lib/ai.ts` — Anthropic calls. **One `MODEL` constant** (`claude-opus-4-8`);
+  flip it for `claude-sonnet-4-6` or `claude-haiku-4-5` to cut per-case cost.
+- `lib/prompts.ts` — every prompt, in one place. The few-shot slots are where
+  the real practitioner workflow goes (the moat).
+- `packages/domain` — shared types.
+- `lib/store.ts` / `lib/supabase.ts` — persistence with local fallback.
 
-To learn more about Next.js, take a look at the following resources:
+## Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+  page.tsx               upload screen
+  case/[id]/page.tsx     case workspace
+  api/process/route.ts   upload -> AI -> save
+  api/notice/route.ts    draft a notice
+components/               UI (rendering only)
+lib/                      ai, prompts, extract, store, supabase, utils
+packages/domain/         shared types
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## V0 deviations from the original PRD
 
-## Deploy on Vercel
+- **Direct multipart upload** instead of Uploadthing — Uploadthing needs a
+  cloud token to run; direct upload lets the local V0 run with zero accounts.
+  Swap in Uploadthing when this goes multi-user.
+- **pdf-parse v2** (`PDFParse` class API) for PDF text. Tesseract.js handles
+  scanned images; `mammoth` handles `.docx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Not in V0
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No auth, CRM, dialer, dashboards, mobile app, integrations, or borrower side.
+A human reviews every draft — Undark never sends anything.
