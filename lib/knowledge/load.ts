@@ -15,7 +15,15 @@ const SKIP_BASENAMES = new Set(["README.md", "index.md"]);
 
 function isSkippedDir(rel: string): boolean {
   const top = rel.split(path.sep)[0];
-  return top === "retrieval" || top === "examples";
+  // retrieval/, examples/ = docs. generated/, chunks/ = the offline ingestion
+  // tool's output, surfaced only in the dev Knowledge Explorer — not wired into
+  // live retrieval yet, so the retrieval engine behaves exactly as before.
+  return (
+    top === "retrieval" ||
+    top === "examples" ||
+    top === "generated" ||
+    top === "chunks"
+  );
 }
 
 /** Recursively collect markdown files under knowledge/, minus meta files. */
