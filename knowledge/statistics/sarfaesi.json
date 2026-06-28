@@ -1,45 +1,53 @@
 {
   "_meta": {
     "title": "SARFAESI recovery statistics",
-    "source": "RBI 'Report on Trend and Progress of Banking in India' (recovery-by-channel table)",
+    "source": "RBI 'Report on Trend and Progress of Banking in India' (recovery-by-channel table). Values below filled from SECONDARY reporting — see policy.",
     "url": "https://www.rbi.org.in",
-    "last_updated": "2026-06-24",
-    "summary": "SARFAESI volumes and recovery rates. Values intentionally null pending sourced fill.",
+    "secondary_urls": [
+      "https://ibclaw.in/sarfaesi-and-drts-yielded-recovery-rates-comparable-to-the-ibc-mechanism/",
+      "https://www.metalegal.in/post/a-bank-s-comrade-an-overview-of-the-sarfaesi-act"
+    ],
+    "last_updated": "2026-06-29",
+    "summary": "SARFAESI volumes and recovery rate. SARFAESI requires a secured asset, so it is largely OUTSIDE the sub-₹1 lakh unsecured segment — recorded as cross-channel context only.",
     "tags": ["statistics", "sarfaesi", "recovery"],
-    "policy": "Copy values only from the named RBI report with exact year. Never fabricate. Note: SARFAESI is largely outside the sub-₹1 lakh segment; these figures are context, not core."
+    "policy": "PRIMARY = RBI 'Report on Trend and Progress of Banking in India' recovery-by-channel table, exact year. Recorded values are from SECONDARY reporting (June 2026 web search) → confidence:medium + TODO_VERIFY. Never fabricate. SARFAESI is context, not core."
   },
   "records": [
     {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
       "metric": "Number of cases referred (SARFAESI channel)",
-      "value": null,
+      "value": 248000,
       "unit": "count",
-      "notes": "TODO: fill from the recovery-by-channel table."
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. Reported as '~2.48 lakh cases'; confirm exact count and year."
     },
     {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
       "metric": "Amount involved (SARFAESI)",
-      "value": null,
+      "value": 289000,
       "unit": "INR crore",
-      "notes": "TODO: fill."
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. Reported as '~₹2.89 lakh crore'."
     },
     {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
       "metric": "Amount recovered (SARFAESI)",
-      "value": null,
+      "value": 41876,
       "unit": "INR crore",
-      "notes": "TODO: fill."
+      "confidence": "medium",
+      "notes": "TODO_VERIFY against primary RBI PDF."
     },
     {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
       "metric": "Recovery rate (SARFAESI)",
-      "value": null,
+      "value": 14.5,
       "unit": "percent",
-      "notes": "TODO: derive amount recovered / amount involved; verify."
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. ₹41,876 Cr / ~₹2.89 lakh Cr ≈ 14.5% — highest of the non-IBC channels, but requires a secured asset."
     }
   ]
 }

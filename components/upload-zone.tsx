@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Upload, FileText, X, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,13 +9,36 @@ import { cn } from "@/lib/utils";
 const ACCEPT =
   ".pdf,.png,.jpg,.jpeg,.webp,.docx,.txt,.csv,.md";
 
+// Processing is one request but several real stages (OCR → extract → analyse).
+// Walking the label through them keeps a 10–30s wait legible.
+const STEPS = [
+  "Reading the documents…",
+  "Extracting the facts…",
+  "Reconstructing the timeline…",
+  "Flagging risks & compliance…",
+  "Drafting the recommendation…",
+];
+
 export function UploadZone() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [step, setStep] = useState(0);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!busy) {
+      setStep(0);
+      return;
+    }
+    const t = setInterval(
+      () => setStep((s) => Math.min(s + 1, STEPS.length - 1)),
+      2800,
+    );
+    return () => clearInterval(t);
+  }, [busy]);
 
   function addFiles(incoming: FileList | null) {
     if (!incoming) return;
@@ -118,7 +141,7 @@ export function UploadZone() {
           {busy ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
-              Reading documents…
+              {STEPS[step]}
             </>
           ) : (
             "Analyse case"

@@ -1,5 +1,9 @@
 # Undark — Case Intelligence Copilot
 
+> **Sibling repo:** the marketing landing page lives in `../undark` (Vite +
+> React). This repo is the product. Open `../undark.code-workspace` to work on
+> both at once; shared overview in `../undark-workspace/WORKSPACE.md`.
+
 ## What we're building
 
 An AI workspace that helps an experienced loan recovery professional understand
