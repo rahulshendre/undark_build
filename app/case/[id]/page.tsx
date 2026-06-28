@@ -1,13 +1,13 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCase } from "@/lib/store";
 import { CaseSummary } from "@/components/case-summary";
+import { CaseVerdict } from "@/components/case-verdict";
 import { Timeline } from "@/components/timeline";
 import { MissingDocs } from "@/components/missing-docs";
 import { Risks } from "@/components/risks";
 import { Compliance } from "@/components/compliance";
-import { NextAction } from "@/components/next-action";
 import { Section } from "@/components/ui/section";
+import { TopBar } from "@/components/ui/top-bar";
 
 export default async function CasePage({
   params,
@@ -19,37 +19,48 @@ export default async function CasePage({
   if (!c) notFound();
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-6 pb-24">
-      <header className="flex items-center justify-between py-5">
-        <Link href="/" className="text-sm font-semibold tracking-tight">
-          Undark
-        </Link>
-        <span className="text-xs tnum text-faint">
-          Case #{c.id} · {c.documents_uploaded.length} docs
-        </span>
-      </header>
+    <>
+      <TopBar
+        right={
+          <span className="tnum text-[11px] text-faint">
+            Case #{c.id} · {c.documents_uploaded.length} docs
+          </span>
+        }
+      />
+      <main className="mx-auto w-full max-w-3xl flex-1 px-6 pb-24 pt-6">
+        {/* Header — who and how much, at a glance. */}
+        <CaseSummary c={c} />
 
-      <CaseSummary c={c} />
+        {/* The answer, first. Reasoning + jump-chips to what must be cleared. */}
+        <div className="mt-5">
+          <CaseVerdict c={c} />
+        </div>
 
-      <Section title="Timeline" count={c.timeline?.length}>
-        <Timeline events={c.timeline} />
-      </Section>
+        {/* Supporting detail, in the order you act on it. */}
+        <Section
+          id="missing"
+          title="Missing information"
+          count={c.missing_docs?.length}
+        >
+          <MissingDocs docs={c.missing_docs} />
+        </Section>
 
-      <Section title="Missing information" count={c.missing_docs?.length}>
-        <MissingDocs docs={c.missing_docs} />
-      </Section>
+        <Section
+          id="risks"
+          title="Risks & inconsistencies"
+          count={c.risks?.length}
+        >
+          <Risks risks={c.risks} />
+        </Section>
 
-      <Section title="Risks & inconsistencies" count={c.risks?.length}>
-        <Risks risks={c.risks} />
-      </Section>
+        <Section id="compliance" title="Compliance" count={c.compliance_flags?.length}>
+          <Compliance flags={c.compliance_flags} />
+        </Section>
 
-      <Section title="Compliance" count={c.compliance_flags?.length}>
-        <Compliance flags={c.compliance_flags} />
-      </Section>
-
-      <Section title="Recommended next action">
-        <NextAction c={c} />
-      </Section>
-    </main>
+        <Section id="timeline" title="Timeline" count={c.timeline?.length}>
+          <Timeline events={c.timeline} />
+        </Section>
+      </main>
+    </>
   );
 }

@@ -50,3 +50,31 @@ body {
 .tnum {
   font-variant-numeric: tabular-nums;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+/*
+  Print: a clean, single-column case file. Drop the app chrome and any
+  interactive controls; keep blocks intact across page breaks.
+*/
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-block {
+    break-inside: avoid;
+  }
+}
