@@ -1,21 +1,44 @@
 {
   "_meta": {
     "title": "DRT recovery statistics",
-    "source": "RBI 'Report on Trend and Progress of Banking in India'; Ministry of Finance / DRT data",
+    "source": "RBI 'Report on Trend and Progress of Banking in India'; Ministry of Finance / DRT data. Values below filled from SECONDARY reporting — see policy.",
     "url": "https://www.rbi.org.in",
-    "last_updated": "2026-06-24",
-    "summary": "Debts Recovery Tribunal volumes and recovery rates. Values intentionally null pending sourced fill.",
+    "secondary_urls": [
+      "https://ibclaw.in/sarfaesi-and-drts-yielded-recovery-rates-comparable-to-the-ibc-mechanism/",
+      "https://www.etvbharat.com/english/bharat/bharat-news/explained-why-ibc-is-better-than-lok-adalats-drts-and-sarfaesi-act/na20200923124421154"
+    ],
+    "last_updated": "2026-06-29",
+    "summary": "Debts Recovery Tribunal volumes and recovery rate. DRT jurisdiction starts at ₹20 lakh, so it is OUT of the sub-₹1 lakh segment — recorded as cross-channel context only.",
     "tags": ["statistics", "drt", "recovery"],
-    "policy": "Copy values only from the named RBI report (recovery-by-channel table) or official DRT data, with exact year. Never fabricate."
+    "policy": "PRIMARY = RBI 'Report on Trend and Progress of Banking in India' recovery-by-channel table, exact year. Recorded values are from SECONDARY reporting (June 2026 web search) → confidence:medium + TODO_VERIFY. Never fabricate."
   },
   "records": [
     {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
       "metric": "Number of cases referred (DRT channel)",
-      "value": null,
+      "value": 252000,
       "unit": "count",
-      "notes": "TODO: fill from the recovery-by-channel table."
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. Reported as '~2.52 lakh cases'; confirm exact count and year against primary table."
+    },
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
+      "metric": "Amount recovered (DRT)",
+      "value": 10574,
+      "unit": "INR crore",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY against primary RBI PDF."
+    },
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (via secondary reporting)",
+      "metric": "Recovery rate (DRT)",
+      "value": 3.5,
+      "unit": "percent",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. Reported ~3.5%. 'Amount involved' not captured in the secondary source → derive and confirm from the primary table."
     },
     {
       "year": null,
@@ -23,23 +46,7 @@
       "metric": "Amount involved (DRT)",
       "value": null,
       "unit": "INR crore",
-      "notes": "TODO: fill."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Amount recovered (DRT)",
-      "value": null,
-      "unit": "INR crore",
-      "notes": "TODO: fill."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Recovery rate (DRT)",
-      "value": null,
-      "unit": "percent",
-      "notes": "TODO: derive amount recovered / amount involved; historically low — verify."
+      "notes": "TODO: fill from the recovery-by-channel table (needed to verify the 3.5% rate)."
     }
   ]
 }

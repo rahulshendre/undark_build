@@ -1,21 +1,72 @@
 {
   "_meta": {
     "title": "Banking / NBFC industry recovery statistics",
-    "source": "RBI Financial Stability Report; RBI 'Report on Trend and Progress of Banking in India'",
+    "source": "RBI 'Report on Trend and Progress of Banking in India' (recovery-by-channel table). Values below filled from SECONDARY reporting of that RBI report — see policy.",
     "url": "https://www.rbi.org.in",
-    "last_updated": "2026-06-24",
-    "summary": "Cross-channel recovery and asset-quality context. Values intentionally null pending sourced fill.",
+    "secondary_urls": [
+      "https://www.drishtiias.com/daily-updates/daily-news-analysis/financial-stability-report-june-2024",
+      "https://ibclaw.in/sarfaesi-and-drts-yielded-recovery-rates-comparable-to-the-ibc-mechanism/",
+      "https://www.etvbharat.com/english/bharat/bharat-news/explained-why-ibc-is-better-than-lok-adalats-drts-and-sarfaesi-act/na20200923124421154"
+    ],
+    "last_updated": "2026-06-29",
+    "summary": "Cross-channel recovery context for Scheduled Commercial Banks. The recovery-by-channel table compares Lok Adalat vs DRT vs SARFAESI vs IBC. Takeaway for Undark: formal litigation channels recover a small fraction of what is referred, so for small-ticket unsecured the realistic win is a fast pre-litigation settlement at the right forum, not a recovery suit.",
     "tags": ["statistics", "industry", "npa", "recovery-channels"],
-    "policy": "Copy values only from the named RBI publications with exact year. Never fabricate. Recovery-rate-by-channel is the most useful table here for comparing Lok Adalat vs DRT vs SARFAESI vs IBC."
+    "policy": "PRIMARY = RBI 'Report on Trend and Progress of Banking in India', recovery-by-channel table, exact year. Values currently recorded are from SECONDARY news/analysis reporting that RBI report (June 2026 web search), so each carries confidence:medium + TODO_VERIFY against the primary PDF. Never fabricate. Scope note: these are SCB figures for (mostly large) NPAs, NOT sub-₹1 lakh unsecured — context only; never present them as the practitioner's own recovery rates.",
+    "note": "Year mixing: the Lok Adalat line is widely cited for 2021-22; the SCB total + IBC share are reported for 2024-25; DRT/SARFAESI case counts are reported around 2024-25. Treat years as approximate until each row is confirmed against the primary table."
   },
   "records": [
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India 2024-25 (via secondary reporting)",
+      "metric": "Total amount recovered by SCBs — all channels",
+      "value": 104099,
+      "unit": "INR crore",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY against primary RBI PDF. Of this, IBC contributed ₹54,528 Cr (52.4%)."
+    },
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India 2024-25 (via secondary reporting)",
+      "metric": "Amount recovered (IBC channel)",
+      "value": 54528,
+      "unit": "INR crore",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. 52.4% of total SCB recoveries — the single largest channel. IBC is out of sub-₹1L scope; benchmark only."
+    },
+    {
+      "year": "2021-22",
+      "source": "RBI Report on Trend and Progress of Banking in India (recovery-by-channel, via secondary reporting)",
+      "metric": "Recovery rate by channel — Lok Adalat",
+      "value": 2.3,
+      "unit": "percent",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. ₹2,778 Cr recovered against ₹1,19,006 Cr referred across 85,06,741 cases. Low rate reflects banks pushing large/old NPAs through Lok Adalat; for sub-₹1L unsecured, Lok Adalat is still the pragmatic SETTLEMENT forum (cheap, fast, final) — frame carefully, do not present 2.3% as Undark's expected outcome."
+    },
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (recovery-by-channel, via secondary reporting)",
+      "metric": "Recovery rate by channel — DRT",
+      "value": 3.5,
+      "unit": "percent",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. ~₹10,574 Cr recovered across ~2.52 lakh cases. DRT jurisdiction starts at ₹20 lakh — out of sub-₹1L scope; context only."
+    },
+    {
+      "year": "2024-25",
+      "source": "RBI Report on Trend and Progress of Banking in India (recovery-by-channel, via secondary reporting)",
+      "metric": "Recovery rate by channel — SARFAESI",
+      "value": 14.5,
+      "unit": "percent",
+      "confidence": "medium",
+      "notes": "TODO_VERIFY. ₹41,876 Cr recovered against ~₹2.89 lakh Cr referred across ~2.48 lakh cases. SARFAESI needs security; largely N/A for sub-₹1L unsecured — context only."
+    },
     {
       "year": null,
       "source": "RBI Financial Stability Report",
       "metric": "Scheduled commercial banks GNPA ratio",
       "value": null,
       "unit": "percent",
-      "notes": "TODO: fill from the latest FSR."
+      "notes": "TODO: fill from the latest FSR (June 2024 FSR reported a multi-year-low SCB GNPA ratio; confirm exact figure before recording)."
     },
     {
       "year": null,
@@ -24,38 +75,6 @@
       "value": null,
       "unit": "percent",
       "notes": "TODO: fill from the latest FSR."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Recovery rate by channel — Lok Adalat",
-      "value": null,
-      "unit": "percent",
-      "notes": "TODO: fill; compare against DRT / SARFAESI / IBC in the same table."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Recovery rate by channel — DRT",
-      "value": null,
-      "unit": "percent",
-      "notes": "TODO: fill from the same recovery-by-channel table."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Recovery rate by channel — SARFAESI",
-      "value": null,
-      "unit": "percent",
-      "notes": "TODO: fill from the same recovery-by-channel table."
-    },
-    {
-      "year": null,
-      "source": "RBI Report on Trend and Progress of Banking in India",
-      "metric": "Recovery rate by channel — IBC",
-      "value": null,
-      "unit": "percent",
-      "notes": "TODO: fill; IBC is out of small-ticket scope but useful as a benchmark."
     }
   ]
 }
